@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { smart } from '@babel/template';
 
  const Header = (props) => {
     const { branding } = props;
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-secondary mb-3 py-0">
         <div className="container">
-          <a href="/" className="navbar-brand">
+          <a href="/" className="navbar-brand" style={headingStyle}>
             {branding}
           </a>
           <div>
@@ -30,6 +29,6 @@ Header.propTypes = {
 
 const headingStyle = {
     fontSize: '20px', 
-    color: 'red'
+    color: 'white'
 }
 export default Header;
