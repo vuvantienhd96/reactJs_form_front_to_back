@@ -1,53 +1,59 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Consumer } from "./context";
 
 class Contact extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       isCompleteShow: false
-    };this.onShowClick = this.onShowClick.bind(this);
+    };
+    this.onShowClick = this.onShowClick.bind(this);
   }
 
-  onShowClick = (e) => {
+  onShowClick = e => {
     this.setState({
       isCompleteShow: !this.state.isCompleteShow
     });
-    
-  }
+  };
 
-  onDeleteClick = () =>{
-    this.props.deleteClickHandle();
-  }
+  onDeleteClick = (dispath, id) => {
+    dispath({type: 'Delete_contact', payload: id})
+  };
 
   render() {
-    const { name, email, phone } = this.props.contact;
+    const { name, email, phone, id } = this.props.contact;
     const { isCompleteShow } = this.state;
     return (
-      <div className="card card-body mb-3">
-        <h3>
-          {name}{" "}
-          <i
-            className="fas fa-sort-down"
-            onClick={this.onShowClick}
-          />
-          <i 
-            className="fas fa-times"
-            style={{ cursor: 'pointer', float: 'right', color: 'red'}}
-            onClick={this.onDeleteClick}></i>
-        </h3>
-        { isCompleteShow ? (<ul className="list-group">
-          <li className="list-group-item">Email: {email}</li>
-          <li className="list-group-item">Phone: {phone}</li>
-        </ul>): null}
-        
-      </div>
+      <Consumer>
+        {value => {
+          const { dispath } = value;
+          return (
+            <div className="card card-body mb-3">
+              <h3>
+                {name}{" "}
+                <i className="fas fa-sort-down" onClick={this.onShowClick} />
+                <i
+                  className="fas fa-times"
+                  style={{ cursor: "pointer", float: "right", color: "red" }}
+                  onClick={this.onDeleteClick.bind(this, dispath, id)}
+                />
+              </h3>
+              {isCompleteShow ? (
+                <ul className="list-group">
+                  <li className="list-group-item">Email: {email}</li>
+                  <li className="list-group-item">Phone: {phone}</li>
+                </ul>
+              ) : null}
+            </div>
+          );
+        }}
+      </Consumer>
     );
   }
 }
 
 Contact.propTypes = {
-  contact: PropTypes.object.isRequired,
-  deleteClickHandle: PropTypes.func.isRequired
+  contact: PropTypes.object.isRequired
 };
 export default Contact;
