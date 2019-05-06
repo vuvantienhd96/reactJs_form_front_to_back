@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Contacts from "./components/contacts/contacts";
+
 import Header from "./components/layout/header";
 import AddContact from "./components/contacts/AddContact";
-
+import Contacts from "./components/contacts/Contacts";
 import { Provider } from "./components/context";
 
 import "bootstrap/dist/css/bootstrap.min.css";
