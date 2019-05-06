@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <Provider>
-        <div className="App">
+        <div className="container App">
           <Header branding="Contact Manager" />
           <div className="container">
             <AddContact />
