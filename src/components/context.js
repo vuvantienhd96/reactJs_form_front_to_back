@@ -9,6 +9,14 @@ const reduce = (state, acticon) => {
         ...state,
         contacts: state.contacts.filter(state => state.id !== acticon.payload)
       };
+    case "Add_contact":
+      return {
+        ...state,
+        contacts: [
+          acticon.payload,
+          ...state.contacts
+        ]
+      };
     default:
       return state;
   }
