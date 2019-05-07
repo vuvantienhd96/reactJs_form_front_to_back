@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Contact from "./Contact";
+import Contact from "./contact/Contact";
 import { Consumer } from "../context";
 
 class Contacts extends Component {
