@@ -25,9 +25,9 @@ class AddContact extends Component {
   };
 
   static defaultProps = {
-    name: "Fred Smith",
-    email: "fred@yahoo.com",
-    phone: "777-333-111"
+    name: "",
+    email: "",
+    phone: ""
   };
 
   render() {
