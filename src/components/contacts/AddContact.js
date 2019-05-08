@@ -70,6 +70,7 @@ class AddContact extends Component {
                       defaultValue={phone}
                       ref={this.phoneInput}
                     />
+                    <label></label>
                     <input
                       type="submit"
                       value="Add contact"

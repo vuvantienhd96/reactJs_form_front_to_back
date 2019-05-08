@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import { Consumer } from "./../context";
 import uuid from "uuid";
+import TextInputGroup from "./../layout/TextInputGroup";
 
 class AddContact extends Component {
-  state = {
-    name: "",
-    email: "",
-    phone: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      phone: ""
+    };
+  }
+ 
 
   onSubmit = (dispath, e) => {
     e.preventDefault();
@@ -43,7 +48,7 @@ class AddContact extends Component {
               <div className="card-header">Add Contact</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispath)}>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <label htmlFor="name">Name</label>
                     <input
                       type="text"
@@ -53,6 +58,16 @@ class AddContact extends Component {
                       value={name}
                       onChange={this.onChange}
                     />
+                  </div> */}
+                  <TextInputGroup 
+                    name="name"
+                    label="Name"
+                    type="text"
+                    placehorder="Enter Name..."
+                    value={name}
+                    onChange={this.onChange}
+                  ></TextInputGroup>
+                  <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input
                       type="email"
@@ -62,6 +77,8 @@ class AddContact extends Component {
                       value={email}
                       onChange={this.onChange}
                     />
+                  </div>
+                  <div className="form-group">
                     <label htmlFor="phone">Email</label>
                     <input
                       type="number"
@@ -71,6 +88,8 @@ class AddContact extends Component {
                       value={phone}
                       onChange={this.onChange}
                     />
+                  </div>
+                  <div className="form-group">
                     <input
                       type="submit"
                       value="Add contact"

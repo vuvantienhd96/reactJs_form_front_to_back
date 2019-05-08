@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "./components/layout/header";
-import AddContact from "./components/contacts/AddContact";
+import AddContact from "./components/contacts/AddContact1";
 import Contacts from "./components/contacts/Contacts";
 import { Provider } from "./components/context";
 
