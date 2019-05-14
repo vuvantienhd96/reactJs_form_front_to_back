@@ -30,7 +30,7 @@ class Contact extends Component {
           const { dispath } = value;
           return (
             <div className="card card-body mb-3">
-              <h3>
+              <h5>
                 {name}{" "}
                 <i className="fas fa-sort-down" onClick={this.onShowClick} />
                 <i
@@ -38,7 +38,7 @@ class Contact extends Component {
                   style={{ cursor: "pointer", float: "right", color: "red" }}
                   onClick={this.onDeleteClick.bind(this,dispath, id)}
                 />
-              </h3>
+              </h5>
               {isCompleteShow ? (
                 <ul className="list-group">
                   <li className="list-group-item">Email: {email}</li>
